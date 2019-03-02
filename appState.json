@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "carpool/lambda.js",
-        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "code": "let AWS = require('aws-sdk');\n\nexports.handler = function(event, context, callback) {\n    let receiver = event['receiver'];\n    let sender = event['sender'];\n    let message = event['messaage'];\n\n    console.log(\"Sending message\", message, \"to receiver\", receiver);\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
         "triggers": [
           {
             "resourceName": "apigusEast1carpoolSMSGatewaycarpoolSendSMSpost",
@@ -85,7 +85,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1551551560958
+    "lastSave": 1551551845112
   },
   "VCS_STATE": {
     "provider": "GitHub",
