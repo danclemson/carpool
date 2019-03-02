@@ -22,7 +22,7 @@
         "children": [],
         "isRemovable": true,
         "filePath": "carpool/lambda.js",
-        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n    let receiver = event['receiver'];\n    let sender = event['sender'];\n    let message = event['messaage'];\n\n    console.log(\"Sending message\", message, \"to receiver\", receiver);\n    sns.publish({\n        Message: message,\n        MessageAttributes: {\n            'AWS.SNS.SMS.SMSType': {\n                DataType: 'String',\n                StringValue: 'Promotional'\n            },\n            'AWS.SNS.SMS.SenderID': {\n                DataType: 'String',\n                StringValue: sender\n            },\n        },\n        PhoneNumber: receiver\n    }).promise()\n        .then(data => {\n            console.log(\"Send message to\", receiver);\n            callback(null, data);\n        })\n        .catch(err => {\n            console.log(\"Sending failed\", err);\n            callback(err);\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
+        "code": "let AWS = require('aws-sdk');\nconst sns = new AWS.SNS();\n\nexports.handler = function (event, context, callback) {\n    let receiver = event['receiver'];\n    let sender = event['sender'];\n    let message = event['message'];\n\n    console.log(\"Sending message\", message, \"to receiver\", receiver);\n    sns.publish({\n        Message: message,\n        MessageAttributes: {\n            'AWS.SNS.SMS.SMSType': {\n                DataType: 'String',\n                StringValue: 'Promotional'\n            },\n            'AWS.SNS.SMS.SenderID': {\n                DataType: 'String',\n                StringValue: sender\n            },\n        },\n        PhoneNumber: receiver\n    }).promise()\n        .then(data => {\n            console.log(\"Send message to\", receiver);\n            callback(null, data);\n        })\n        .catch(err => {\n            console.log(\"Sending failed\", err);\n            callback(err);\n        });\n\n    callback(null, { \"message\": \"Successfully executed\" });\n}",
         "triggers": [
           {
             "resourceName": "apigusEast1carpoolSMSGatewaycarpoolSendSMSpost",
@@ -96,7 +96,7 @@
     "projectRegion": "us-east-1",
     "platform": "AWS",
     "platformRegions": {},
-    "lastSave": 1551552378566
+    "lastSave": 1551553676564
   },
   "VCS_STATE": {
     "provider": "GitHub",
