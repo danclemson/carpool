@@ -1,0 +1,97 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "bd5e3f2c-a892-45a2-95be-537eb05c4271": {
+        "id": "bd5e3f2c-a892-45a2-95be-537eb05c4271",
+        "parent": null,
+        "name": "carpool",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "6b1f14a1-de21-48d1-81cc-dedc7ab37e09"
+        ],
+        "isRemovable": false,
+        "filePath": "carpool"
+      },
+      "6b1f14a1-de21-48d1-81cc-dedc7ab37e09": {
+        "id": "6b1f14a1-de21-48d1-81cc-dedc7ab37e09",
+        "parent": "bd5e3f2c-a892-45a2-95be-537eb05c4271",
+        "name": "lambda.js",
+        "type": "LAMBDA_FILE",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "carpool/lambda.js",
+        "code": "exports.handler = function(event, context, callback) {\n    \n    callback(null, {\"message\": \"Successfully executed\"});\n}",
+        "triggers": [
+          {
+            "resourceName": "apigusEast1carpoolSMSGatewaycarpoolSendSMSpost",
+            "config": {}
+          }
+        ],
+        "config": {
+          "runtime": "nodejs8.10",
+          "timeout": 60,
+          "memory": 128
+        }
+      }
+    },
+    "deletedFiles": [],
+    "rootNode": "bd5e3f2c-a892-45a2-95be-537eb05c4271",
+    "openFiles": [
+      "6b1f14a1-de21-48d1-81cc-dedc7ab37e09"
+    ],
+    "currentFileId": "6b1f14a1-de21-48d1-81cc-dedc7ab37e09",
+    "resources": {
+      "apigusEast1carpoolSMSGatewaycarpoolSendSMSpost": {
+        "name": "apigusEast1carpoolSMSGatewaycarpoolSendSMSpost",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "us-east-1",
+          "apiMode": 0,
+          "apiName": "carpoolSMSGateway",
+          "endpointType": "EDGE",
+          "resourceMode": 0,
+          "resourceName": "carpoolSendSMS",
+          "resourcePath": "/carpoolSendSMS",
+          "restMethod": "POST",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 0,
+          "stageName": "Prod"
+        },
+        "globallyEditable": false
+      }
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {}
+    },
+    "lambdaId": "6b1f14a1-de21-48d1-81cc-dedc7ab37e09"
+  },
+  "PROJECT_META": {
+    "projectName": "carpool",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "us-east-1",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1551551560958
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "carpool",
+      "url": "https://github.com/danclemson/carpool"
+    }
+  }
+}
